@@ -1,0 +1,19 @@
+{
+    "name": "dm79219/file_asynch_download",
+    "description": "Php library to run query in chunks asynchronously and downloading the result in CSV",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Divyanshu",
+            "email": "divyanshumahajan1@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+	"php": ">=5.5.0"
+    },
+    "autoload": {
+        "files": ["src/library.php"]
+    }
+}
