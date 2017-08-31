@@ -9,7 +9,7 @@
             "email": "divyanshumahajan1@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "repositories":[
         {
             "type":"git",
