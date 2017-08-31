@@ -9,7 +9,25 @@
             "email": "divyanshumahajan1@gmail.com"
         }
     ],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
+    "repositories":[
+        {
+            "type":"git",
+            "url":"https://github.com/dm79219/file_asynch_download"
+        },
+        {
+            "type":"package",
+            "package":{
+                "name":"dm79219/file_asynch_download",
+                "version":"1.0.0",
+                "source":{
+                    "type":"git",
+                    "url":"https://github.com/dm79219/file_asynch_download",
+                    "reference":"master"
+                }
+            }
+        }
+    ],
     "require": {
 	"php": ">=5.5.0"
     },
