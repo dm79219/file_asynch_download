@@ -18,46 +18,21 @@ class Bootstrap
 
 	static function get_root_path($dir) {
 
-        /* If run from the commandline, DOCUMENT_ROOT will not be set. It is
-         * also likely that the ROOT_PATH will not be necessary, so don't
-         * bother attempting to figure it out.
-         *
-         * Secondly, if the directory of main.inc.php is the same as the
-         * document root, the the ROOT path truly is '/'
-         */
-        if(!isset($_SERVER['DOCUMENT_ROOT'])
-                || !strcasecmp($_SERVER['DOCUMENT_ROOT'], $dir))
-            return '/';
+        //if(!isset($_SERVER['DOCUMENT_ROOT']) || !strcasecmp($_SERVER['DOCUMENT_ROOT'], $dir))
+          //  return '/';
 
-        /* The main idea is to try and use full-path filename of PHP_SELF and
-         * SCRIPT_NAME. The SCRIPT_NAME should be the path of that script
-         * inside the DOCUMENT_ROOT. This is most likely useful if osTicket
-         * is run using something like Apache UserDir setting where the
-         * DOCUMENT_ROOT of Apache and the installation path of osTicket
-         * have nothing in comon.
-         *
-         * +---------------------------+-------------------+----------------+
-         * | PHP Script                | SCRIPT_NAME       | ROOT_PATH      |
-         * +---------------------------+-------------------+----------------+
-         * | /home/u1/www/osticket/... | /~u1/osticket/... | /~u1/osticket/ |
-         * +---------------------------+-------------------+----------------+
-         *
-         * The algorithm will remove the directory of main.inc.php from
-         * as seen. What's left should be the script executed inside
-         * the osTicket installation. That is removed from SCRIPT_NAME.
-         * What's left is the ROOT_PATH.
-         */
-        $bt = debug_backtrace(false);
-        $frame = array_pop($bt);
-        $file = str_replace('\\','/', $frame['file']);
-        $path = substr($file, strlen(ROOT_DIR));
-        if($path && ($pos=strpos($_SERVER['SCRIPT_NAME'], $path))!==false)
-            return ($pos) ? substr($_SERVER['SCRIPT_NAME'], 0, $pos) : '/';
+        $a = getcwd();
+        $bt = debug_backtrace();
 
+        $bt_path = $bt[0]['args'][0];
+        $root_path = explode($a,$bt_path)[1];
+        if($root_path)
+        return $root_path;
         if (self::is_cli())
             return '/';
 
         return null;
+
     }
 
     /* returns true if script is being executed via commandline */
