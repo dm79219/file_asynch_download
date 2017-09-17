@@ -3,7 +3,7 @@ Php library to run query in chunks asynchronously and downloading the result in 
 
 # install
 
-composer require dm79219/file_asynch_download
+composer require dm79219/file_asynch_download @dev
 
 
 # use
