@@ -2,8 +2,9 @@
 /**
 * 
 */
-// namespace dm79219\asynchlib\model;
-// use \dm79219\asynchlib\connection as Connection;
+namespace dm79219\asynchlib\model;
+use \dm79219\asynchlib\connection as Connection;
+use \dm79219\asynchlib\helpers as Helper;
 
 
 class FileAsynchModel
@@ -14,7 +15,7 @@ class FileAsynchModel
 	private $file_dir_path;
 	function __construct()
 	{
-		$this->db_conn = MysqliConnection::getObject();
+		$this->db_conn = Connection\MysqliConnection::getObject();
 		$this->no_of_scripts = SCRIPT_NUMBER;
 		$time = time();
 		$this->file_dir = FILE_CHUNK_DIR.$time."/";
@@ -30,7 +31,7 @@ class FileAsynchModel
 	public function init($query,$params=array())
 	{
         $bucketNumber = 0;
-        $shellObj = new ShellCommand();
+        $shellObj = new Helper\ShellCommand();
         $shellObj->make_dir($this->file_dir);
         $i=1;
         while(1){
@@ -71,7 +72,7 @@ class FileAsynchModel
         }
         $joinFile_path = $this->file_dir.'queryData.csv';
         foreach($files as $file) {
-        	$fileObj = new File($file,'r');
+        	$fileObj = new Helper\File($file,'r');
         	$fileObj->joinCsv($joinFile_path);
         	$fileObj->close();
         }
@@ -84,21 +85,19 @@ class FileAsynchModel
         $offset = $bucketNumber * BUCKET_SIZE;
         $query = $query . " limit " . $offset . ", " . BUCKET_SIZE;
         $excelArray = $this->getData($query,$params);
-        $filePointer = new File($file,'w');
+        $filePointer = new Helper\File($file,'w');
         $header = FALSE;
         foreach ($excelArray as $index=>$data){
             if(!$header && $bucketNumber==0){
            		$filePointer->putCsvData(array_keys($data));
                 $header=TRUE;
             }
-            
             $filePointer->putCsvData($excelArray[$index]);
-            
           
         }
         $dir = dirname($file);
         $filename = explode('.',basename($file));
-        $fp = new File($dir.'/file_log.log', 'a');
+        $fp = new Helper\File($dir.'/file_log.log', 'a');
         $fp->filePuts($filename[0]."\n");
         $fp->close();
         $filePointer->close();

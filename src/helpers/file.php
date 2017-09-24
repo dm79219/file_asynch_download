@@ -5,7 +5,7 @@
 *  vim: expandtab sw=4 ts=4 sts=4:
 */
 
-//namespace dm79219\asynchlib\helpers;
+namespace dm79219\asynchlib\helpers;
 
 class File
 {

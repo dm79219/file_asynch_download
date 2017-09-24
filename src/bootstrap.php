@@ -18,6 +18,7 @@ class Bootstrap
 
 	static function get_root_path($dir) {
 
+        
         //if(!isset($_SERVER['DOCUMENT_ROOT']) || !strcasecmp($_SERVER['DOCUMENT_ROOT'], $dir))
           //  return '/';
 
@@ -57,7 +58,7 @@ define('FILE_CHUNK_DIR', ROOT_DIR.'upload/');
 define('HELPERS_PATH', ROOT_PATH.'helpers/');
 define('HELPERS_DIR', ROOT_DIR.'helpers/');
 define('MODEL_DIR', ROOT_DIR.'model/');
-define('CONNECTION_DIR', ROOT_DIR.'connection/');
+define('DB_CONNECTION_DIR', ROOT_DIR.'db_connection/');
 define('SCRIPT_NUMBER', 2);
 
 define('LOG_FILE', ROOT_DIR.'logs/app_logs.txt');

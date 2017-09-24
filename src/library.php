@@ -5,17 +5,17 @@
 *  Divyanshu Mahajan <divyanshumahajan1@gmail.com>
 *  
 */
-
-//namespace dm79219\asynchLib;
-//use \dm79219\asynchlib\model as Model;
-
-require_once("bootstrap.php");
+namespace dm79219\asynchLib;
+use \dm79219\asynchlib\model as Model;
+$s = dirname(__FILE__);
+chdir($s);
+require_once($s . "/bootstrap.php");
 class Library
 {
     private $model;
 	function __construct()
 	{
-        $this->model = new FileAsynchModel();
+        $this->model = new Model\FileAsynchModel();
 	}
 
     function run($query,$params=array())

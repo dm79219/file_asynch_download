@@ -3,7 +3,7 @@
 * 
 */
 
-//namespace dm79219\asynchlib\helpers;
+namespace dm79219\asynchlib\helpers;
 
 class ShellCommand
 {

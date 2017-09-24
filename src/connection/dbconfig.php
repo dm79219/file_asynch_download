@@ -4,25 +4,25 @@
 * 
 */
 
-//namespace dm79219\asynchlib\connection;
+namespace dm79219\asynchlib\connection;
 class DbConfig
 {
 
 	private $slave_db_config = array(
 									"db_type" => "mysql",
 									"db_host" => "localhost",
-									"db_name" => "db_name",
-									"db_user" => "db_user",
-									"db_pass" => "db_pass",
+									"db_name" => "osticket3",
+									"db_user" => "root",
+									"db_pass" => "12345",
 									"db_charset" => "utf8",
 									"db_port" => "3306"
 								);
 	private $mater_db_config = array(
 									"db_type" => "mysql",
 									"db_host" => "localhost",
-									"db_name" => "db_name",
-									"db_user" => "db_user",
-									"db_pass" => "db_pass",
+									"db_name" => "osticket3",
+									"db_user" => "root",
+									"db_pass" => "12345",
 									"db_charset" => "utf8",
 									"db_port" => "3306"
 								);
@@ -48,3 +48,19 @@ class DbConfig
 		return $type;
 	}
 }
+
+// define('SLAVE_DBTYPE','mysql');
+// define('SLAVE_DBHOST','localhost');
+// define('SLAVE_DBNAME','osticket3');
+// define('SLAVE_DBUSER','root');
+// define('SLAVE_DBPASS','12345');
+// define('SLAVE_CHARSET', 'utf8');
+// define('SLAVE_DBPORT','3306');
+
+
+// // Write Query types...
+// define('OST_QUERY_WRITE_TYPES', serialize(array('insert', 'update', 'delete', 'replace', 'set')));
+
+// //Read Query types
+// define('OST_QUERY_READ_TYPES', serialize(array('select', 'show', 'explain')));
+

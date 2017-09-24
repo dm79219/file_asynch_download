@@ -4,8 +4,8 @@
 * 
 */
 
-// namespace dm79219\asynchlib\connection;
-// use \PDO;
+namespace dm79219\asynchlib\connection;
+use \PDO;
 
 class MysqliConnection
 {

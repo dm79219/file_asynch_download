@@ -8,7 +8,7 @@
 class StringClass
 {
 	
-	function __construct()
+	function __construct(argument)
 	{
 		# code...
 	}
