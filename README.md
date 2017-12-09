@@ -1,4 +1,4 @@
-# file_asynch_download
+# Sql Query Aggregator
 Php library to run query in chunks asynchronously and downloading the result in CSV
 
 # install
